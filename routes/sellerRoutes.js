@@ -3,10 +3,13 @@ import {
   isSellerAuth,
   sellerLogin,
   sellerlogout,
-} from "../Controllers/sellerController";
-import authSeller from "../Middlewares/authSeller";
-const selllerRouter = express.Router();
+} from "../Controllers/sellerController.js";
+import authSeller from "../Middlewares/authSeller.js";
 
-selllerRouter.post("/login", sellerLogin);
-selllerRouter.get("/is-auth", authSeller, isSellerAuth);
-selllerRouter.get("/logout", sellerlogout);
+const sellerRouter = express.Router();
+
+sellerRouter.post("/login", sellerLogin);
+sellerRouter.get("/is-auth", authSeller, isSellerAuth);
+sellerRouter.get("/logout", sellerlogout);
+
+export default sellerRouter;
